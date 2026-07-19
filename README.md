@@ -71,6 +71,25 @@ The synthetic batch is ~half bad *by construction* (it's a detection demo), so t
 on purpose — the illustration is a dirty batch being blocked. Point `--max-bad-rate` and the runs at
 your own collection to gate real training data. No install, it's stdlib.
 
+## Anchored on real traces (TRAIL)
+
+Run unmodified over TRAIL (Patronus, 2025) — 148 annotated agent traces, 841 errors — with the
+category mapping pre-registered before scoring (`trail_anchor.py`):
+
+- **LOOP transfers.** Recall 0.33, precision 0.74 against annotated Resource Abuse; its five false
+  positives are all loop-adjacent bad traces (post-error retries), not noise.
+- **FABRICATED does not** (recall 0.02), for a mechanistic reason worth knowing: CodeAgent executors
+  echo the agent's own invented values back as observations, so token-grounding cannot separate
+  fabrication from grounding.
+- **VACUOUS has no counterpart** in TRAIL's 21-category taxonomy — the gap it names is real — while
+  over-firing on short word-answer traces.
+- Coverage: these three modes address **19.4%** of TRAIL's real-world errors. The synthetic F1s above
+  are teaching numbers, not evidence; this section is the evidence.
+
+TRAIL's own result — frontier LLM judges reach ~11% at span-level error localization — is the
+argument for the architecture here: cheap transparent heuristics that route to a human, not an LLM
+judge that scores everything.
+
 ## What this is *not*
 
 A **clean-room reconstruction from a publicly described approach.** No proprietary code, no internal
