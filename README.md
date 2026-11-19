@@ -101,7 +101,7 @@ disagreements as hypotheses — separates a real run from a fluent-looking empty
 ## Siblings
 
 The same audit-by-disagreement method on two other surfaces:
-- **[detector-demo](https://github.com/BryanMcManusAI/detector-demo)** — rubric-annotation quality (the data that grades the agents).
+- **[rationale-integrity-demo](https://github.com/BryanMcManusAI/rationale-integrity-demo)** — evaluation rationales (when a QA note or judge explanation only performs grounding).
 - **[faithfulness-demo](https://github.com/BryanMcManusAI/faithfulness-demo)** — CoT monitorability (when the reasoning trace an oversight monitor reads stops being faithful).
 
 Part of a broader evaluation-reliability program — [bryanmcmanus.ai](https://bryanmcmanus.ai).
